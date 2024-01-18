@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply flex justify-center  bg-slate-200 bg-cover bg-no-repeat h-screen;
+
+  background-image: linear-gradient(
+    to bottom,
+    #dcdede 0%,
+    #d8d9d9 10%,
+    #24243e 10%,
+    #302b63 50%,
+    #0f0c29 100%
+  );
+}
+.menu {
+  @apply w-20  bg-white rounded-md h-[100px] relative mt-5 flex flex-row items-center justify-center duration-700;
+  transform: width 0.8 linear;
+}
+.menu.active {
+  @apply w-[450px] duration-700 justify-evenly;
+  transform: width 0.8 linear;
+}
+.menu ul {
+  @apply opacity-0 w-0 flex flex-row gap-5;
+}
+.menu.active ul {
+  @apply opacity-100 w-fit;
+}
+.menu.active ul li {
+  @apply text-sm font-bold text-[#555] transform rotate-y-[0deg] transition-transform ease-linear duration-1000;
+}
+.menu ul li {
+  @apply transform   rotate-y-[360deg];
+  /* transform: rotateY('360deg') */
+}
+.toggle {
+  @apply w-7 h-7 z-50 relative;
+}
+.toggle .line {
+  @apply w-7 h-1 bg-zinc-400 z-50 absolute;
+}
+.menu .toggle .line1 {
+  @apply top-2 transform rotate-0 transition-transform duration-700 ease-linear;
+}
+.menu .toggle .line2 {
+  @apply top-5 transform rotate-0 transition-transform duration-700 ease-linear;
+}
+
+.menu.active .toggle .line1 {
+  @apply rotate-[400deg] top-[50%];
+}
+.menu.active .toggle .line2 {
+  @apply -rotate-[400deg] top-[50%];
+}
